@@ -1,20 +1,20 @@
-📸 Serverless Image Resizer
-A serverless image processing tool that allows users to upload, resize, compress, and convert images effortlessly. Built using Azure Functions for the backend and a lightweight HTML, CSS, and JavaScript frontend.
+# 📸 Serverless Image Resizer
+A **serverless image processing tool** that allows users to **upload, resize, compress, and convert images effortlessly**.  
+Built using **Azure Functions** for the backend and a lightweight **HTML, CSS, and JavaScript frontend**.
 
-🚀 Features
-✅ Drag & Drop Image Upload – Users can select or drop images for processing.
+---
 
-✅ Resize & Compress Images – Optimizes file size while maintaining quality.
+## 🚀 Features
+✅ **Drag & Drop Image Upload** – Users can select or drop images for processing.  
+✅ **Resize & Compress Images** – Optimizes file size while maintaining quality.  
+✅ **Convert Formats** – Supports **JPG, PNG, WEBP** output.  
+✅ **Watermarking** – Optionally adds a **"CS496"** watermark.  
+✅ **Cloud Storage** – Processed images are stored on **Azure Blob Storage**.  
+✅ **Serverless Architecture** – Hosted on **Azure Functions** for scalability.  
 
-✅ Convert Formats – Supports JPG, PNG, WEBP output.
+---
 
-✅ Watermarking – Optionally adds a "CS496" watermark.
-
-✅ Cloud Storage – Processed images are stored on Azure Blob Storage.
-
-✅ Serverless Architecture – Hosted on Azure Functions for scalability.
-
-📂 Project Structure
+## 📂 Project Structure
 serverless-image-resizer/
 │── backend/
 │   │── image_resizer/
@@ -32,7 +32,12 @@ serverless-image-resizer/
 │── README.md                 # Project documentation
 
 
-💻 Setup & Installation
+---
+
+## 💻 Setup & Installation
+
+### **1️⃣ Clone the Repository**
+```sh
 git clone https://github.com/emapendo/serverless-image-resizer.git
 cd serverless-image-resizer
 
@@ -40,7 +45,7 @@ cd backend
 python -m venv .venv
 source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
 pip install -r requirements.txt
-
+```
 📌 Set Up Environment Variables
 Create a .env file in backend/image_resizer:
 
