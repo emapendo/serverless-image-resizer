@@ -3,10 +3,15 @@ A serverless image processing tool that allows users to upload, resize, compress
 
 🚀 Features
 ✅ Drag & Drop Image Upload – Users can select or drop images for processing.
+
 ✅ Resize & Compress Images – Optimizes file size while maintaining quality.
+
 ✅ Convert Formats – Supports JPG, PNG, WEBP output.
+
 ✅ Watermarking – Optionally adds a "CS496" watermark.
+
 ✅ Cloud Storage – Processed images are stored on Azure Blob Storage.
+
 ✅ Serverless Architecture – Hosted on Azure Functions for scalability.
 
 📂 Project Structure
