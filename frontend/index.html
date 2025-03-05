@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverless Image Resizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload an Image to Resize</h2>
+
+        <div id="drop-area">
+            <p>Drag & Drop an Image Here or Click to Select</p>
+            <input type="file" id="file-input" accept="image/*">
+        </div>
+
+        <label for="format">Select Format:</label>
+        <select id="format">
+            <option value="JPEG">JPEG</option>
+            <option value="PNG">PNG</option>
+            <option value="WEBP">WEBP</option>
+        </select>
+
+        <label for="watermark">
+            <input type="checkbox" id="watermark"> Add Watermark (CS496)
+        </label>
+
+        <button id="upload-btn">Upload & Process</button>
+        <p id="status"></p>
+
+        <div id="result">
+            <h3>Processed Image:</h3>
+            <img id="output-img" src="" alt="Processed Image">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
