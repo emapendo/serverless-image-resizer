@@ -15,6 +15,7 @@ Built using **Azure Functions** for the backend and a lightweight **HTML, CSS, a
 ---
 
 ## 📂 Project Structure
+```sh
 serverless-image-resizer/
 │── backend/
 │   │── image_resizer/
@@ -30,8 +31,7 @@ serverless-image-resizer/
 │   │── script.js             # Handles user interactions and API calls
 │── .gitignore                # Ignores sensitive & unnecessary files
 │── README.md                 # Project documentation
-
-
+```
 ---
 
 ## 💻 Setup & Installation
@@ -45,7 +45,7 @@ cd backend
 python -m venv .venv
 source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
 pip install -r requirements.txt
-```
+
 📌 Set Up Environment Variables
 Create a .env file in backend/image_resizer:
 
@@ -54,3 +54,4 @@ AZURE_STORAGE_KEY=your-secret-key
 AZURE_CONTAINER_NAME=processed-images
 MAX_WIDTH=800
 MAX_HEIGHT=600
+```
