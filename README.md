@@ -1,6 +1,5 @@
 # 📸 Serverless Image Resizer
-A **serverless image processing tool** that allows users to **upload, resize, compress, and convert images effortlessly**.  
-Built using **Azure Functions** for the backend and a lightweight **HTML, CSS, and JavaScript frontend**.
+A **serverless image processing tool** that allows users to **upload, resize, compress, and convert images effortlessly**. Built using **Azure Functions** for the backend and a lightweight **HTML, CSS, and JavaScript frontend**.
 
 ---
 
