@@ -8,7 +8,7 @@ const formatSelect = document.getElementById('format');
 const watermarkCheckbox = document.getElementById('watermark');
 
 // Your backend function URL (change this when deploying to Azure)
-const API_URL = "https://serverless-resizer.azurewebsites.net/api/image_resizer\n"; // Local Testing
+const API_URL = "https://serverless-resizer.azurewebsites.net/api/image_resizer"; // Local Testing
 // const API_URL = "https://your-azure-function-url/api/image_resizer"; // Uncomment when deployed
 
 let selectedFile = null;
