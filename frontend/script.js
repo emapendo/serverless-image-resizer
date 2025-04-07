@@ -2,7 +2,7 @@ const dropArea = document.getElementById('drop-area');
 const fileInput = document.getElementById('file-input');
 const uploadBtn = document.getElementById('upload-btn');
 const statusText = document.getElementById('status');
-const outputImg = document.getElementById('output-img');
+const downloadLink = document.getElementById('download-link');
 const resultContainer = document.getElementById('result');
 const formatSelect = document.getElementById('format');
 const watermarkCheckbox = document.getElementById('watermark');
@@ -27,10 +27,9 @@ dropArea.addEventListener('drop', (e) => {
     e.preventDefault();
     dropArea.style.background = "#fafafa";
 
-    const files = e.dataTransfer.files;
-    if (files.length > 0) {
-        selectedFile = files[0];
-        statusText.textContent = `Selected: ${selectedFile.name}`;
+    selectedFiles = e.dataTransfer.files;
+    if (selectedFiles.length > 0) {
+        statusText.textContent = `${selectedFiles.length} file(s) selected via drop`;
     }
 });
 
@@ -38,14 +37,17 @@ dropArea.addEventListener('drop', (e) => {
 dropArea.addEventListener('click', () => fileInput.click());
 
 fileInput.addEventListener('change', (e) => {
-    selectedFile = e.target.files[0];
-    statusText.textContent = `Selected: ${selectedFile.name}`;
+    const files = e.target.files;
+    if (files.length > 0){
+        statusText.textContent = `${files.length} file(s) selected`;
+    }
 });
 
 // Upload Image to Backend
 uploadBtn.addEventListener('click', async () => {
-    if (!selectedFile) {
-        statusText.textContent = "Please select a file first!";
+    const files = selectedFiles || filesInput.files;
+    if (!files || !files.length) {
+        statusText.textContent = "Please select at least one file first!";
         return;
     }
 
@@ -53,7 +55,9 @@ uploadBtn.addEventListener('click', async () => {
     const watermark = watermarkCheckbox.checked ? "true" : "false";
 
     const formData = new FormData();
-    formData.append("image", selectedFile);
+    for (const file of files){
+        formData.append("image", file);
+    }
     formData.append("format", format);
     formData.append("watermark", watermark);
 
