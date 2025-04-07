@@ -5,6 +5,8 @@ Thumbs.db
 .idea/
 *.log
 
+frontend/.env
+
 # Python Related
 __pycache__/
 *.pyc

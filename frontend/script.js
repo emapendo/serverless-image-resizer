@@ -43,7 +43,7 @@ function renderPreview() {
         img.classList.add('preview-thumb');
 
         const removeBtn = document.createElement('button');
-        removeBtn.textContent = "Remove";
+        removeBtn.textContent = "x";
         removeBtn.classList.add('remove-btn');
         removeBtn.onclick = () => {
             selectedFiles.splice(index, 1);

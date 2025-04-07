@@ -12,3 +12,4 @@ AZURE_CONTAINER_NAME = os.getenv("AZURE_CONTAINER_NAME")
 # Max Image Dimensions
 MAX_WIDTH = int(os.getenv("MAX_WIDTH", 800))
 MAX_HEIGHT = int(os.getenv("MAX_HEIGHT", 600))
+FUNCTION_KEY = os.getenv("FUNCTION_KEY")
