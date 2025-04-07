@@ -11,7 +11,7 @@ const watermarkCheckbox = document.getElementById('watermark');
 const API_URL = "https://serverless-resizer.azurewebsites.net/api/image_resizer"; // Local Testing
 // const API_URL = "https://your-azure-function-url/api/image_resizer"; // Uncomment when deployed
 
-let selectedFile = null;
+let selectedFiles = null;
 
 // Drag & Drop File Handling
 dropArea.addEventListener('dragover', (e) => {
@@ -45,7 +45,7 @@ fileInput.addEventListener('change', (e) => {
 
 // Upload Image to Backend
 uploadBtn.addEventListener('click', async () => {
-    const files = selectedFiles || filesInput.files;
+    const files = selectedFiles || fileInput.files;
     if (!files || !files.length) {
         statusText.textContent = "Please select at least one file first!";
         return;
@@ -76,7 +76,14 @@ uploadBtn.addEventListener('click', async () => {
         }
 
         console.log("Response:", data);
-        outputImg.src = data.processed_image_url;
+        if(data.zip_url){
+            downloadLink.href = data.zip_url;
+            downloadLink.textContent = "Download Processed Images";
+        }
+        else if (data.processed_image_url){
+            downloadLink.href = data.processed_image_url;
+            downloadLink.textContent = "Download Processed Images";
+        }
         resultContainer.style.display = "block";
         statusText.textContent = "Upload successful!";
     } catch (error) {
