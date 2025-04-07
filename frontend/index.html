@@ -8,12 +8,14 @@
 </head>
 <body>
     <div class="container">
-        <h2>Upload an Image to Resize</h2>
+        <h2>Upload Images to Resize</h2>
 
         <div id="drop-area">
-            <p>Drag & Drop an Image Here or Click to Select</p>
-            <input type="file" id="file-input" accept="image/*">
+            <p>Drag & Drop Images Here or Click to Select</p>
+            <input type="file" id="file-input" accept="image/*" multiple>
         </div>
+
+        <div id="preview-container"></div>
 
         <label for="format">Select Format:</label>
         <select id="format">
