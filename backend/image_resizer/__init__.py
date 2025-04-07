@@ -1,4 +1,4 @@
-import json, logging
+import json, logging, uuid, io, zipfile
 import azure.functions as func
 from azure.storage.blob import BlobServiceClient
 from .utils import resize_image
