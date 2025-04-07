@@ -12,7 +12,7 @@
 
         <div id="drop-area">
             <p>Drag & Drop an Image Here or Click to Select</p>
-            <input type="file" id="file-input" accept="image/*">
+            <input type="file" id="file-input" accept="image/*" multiple>
         </div>
 
         <label for="format">Select Format:</label>
@@ -30,8 +30,8 @@
         <p id="status"></p>
 
         <div id="result">
-            <h3>Processed Image:</h3>
-            <img id="output-img" src="" alt="Processed Image">
+            <h3>Processed Images:</h3>
+            <a id="download-link" href="" download>Download Processed Images</a>
         </div>
     </div>
 
