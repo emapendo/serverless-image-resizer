@@ -25,8 +25,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
         zip_buffer = io.BytesIO()
         with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
-            for key in req.files:
-                file = req.files[key]
+            for file in req.files.getlist('image'):
                 image_bytes = file.read()
 
                 processed_image = resize_image(image_bytes, format=format_choice, add_watermark=add_watermark)
