@@ -80,33 +80,34 @@ uploadBtn.addEventListener('click', async () => {
     const format = formatSelect.value;
     const watermark = watermarkCheckbox.checked ? "true" : "false";
 
-    for (const file of selectedFiles) {
-        const formData = new FormData();
-        formData.append("image", file);
-        formData.append("format", format);
-        formData.append("watermark", watermark);
+    const formData = new FormData();
+    selectedFiles.forEach(file => {
+        formData.append("image", file); // same key for multiple files
+    });
+    formData.append("format", format);
+    formData.append("watermark", watermark);
 
-        statusText.textContent = `Uploading ${file.name}...`;
+    statusText.textContent = "Uploading...";
 
-        try {
-            const response = await fetch(API_URL, {
-                method: "POST",
-                mode: "cors",
-                body: formData
-            });
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            mode: "cors",
+            body: formData
+        });
 
-            const data = await response.json();
-            if (!response.ok) throw new Error(data.error || "Upload failed");
-            resultContainer.innerHTML = `
-                <h3>Download ZIP:</h3>
-                <a href="${data.zip_url}" target="_blank" download>Click here to download processed images</a>
-            `;
-            resultContainer.style.display = "block";
-            statusText.textContent = `Upload successful: ${file.name}`;
-        } catch (err) {
-            console.error(err);
-            statusText.textContent = `Error uploading ${file.name}: ${err.message}`;
-        }
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "Upload failed");
+
+        resultContainer.innerHTML = `
+            <h3>Download ZIP:</h3>
+            <a href="${data.zip_url}" target="_blank" download>Click here to download processed images</a>
+        `;
+        resultContainer.style.display = "block";
+        statusText.textContent = `Upload successful!`;
+    } catch (err) {
+        console.error(err);
+        statusText.textContent = `Error uploading: ${err.message}`;
     }
 
     selectedFiles = [];
