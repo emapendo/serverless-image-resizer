@@ -81,6 +81,15 @@ select, input[type="checkbox"], button {
     margin-top: 10px;
 }
 
+#result a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+#result a:hover {
+    text-decoration: underline;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
     .container {

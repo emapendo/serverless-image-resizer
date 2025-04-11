@@ -97,8 +97,10 @@ uploadBtn.addEventListener('click', async () => {
 
             const data = await response.json();
             if (!response.ok) throw new Error(data.error || "Upload failed");
-
-            outputImg.src = data.processed_image_url;
+            resultContainer.innerHTML = `
+                <h3>Download ZIP:</h3>
+                <a href="${data.zip_url}" target="_blank" download>Click here to download processed images</a>
+            `;
             resultContainer.style.display = "block";
             statusText.textContent = `Upload successful: ${file.name}`;
         } catch (err) {
