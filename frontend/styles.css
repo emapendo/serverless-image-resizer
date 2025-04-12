@@ -144,3 +144,10 @@ select, input[type="checkbox"], button {
     background-color: #c82333;
 }
 
+.processed-image {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
