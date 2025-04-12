@@ -102,6 +102,10 @@ uploadBtn.addEventListener('click', async () => {
             resultContainer.innerHTML = `
                 <h3>Processed Image:</h3>
                 <img src="${data.processed_image_url}" alt="Processed Image" class="processed-image" />
+                <br />
+                <a href="${data.processed_image_url}" target="_blank" download>
+                    Click here to download processed image
+                </a>
             `;
         } else if(data.zip_url) {
             resultContainer.innerHTML = `
