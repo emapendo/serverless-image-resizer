@@ -3,6 +3,7 @@ import azure.functions as func
 from .utils import resize_image
 from .config import AZURE_STORAGE_ACCOUNT, AZURE_STORAGE_KEY, AZURE_CONTAINER_NAME
 from azure.storage.blob import BlobServiceClient
+from datetime import datetime, timezone
 
 blob_service_client = BlobServiceClient(
     account_url=f"https://{AZURE_STORAGE_ACCOUNT}.blob.core.windows.net",
@@ -55,7 +56,8 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
                     zip_file.writestr(new_filename, processed_image.getvalue())
 
             zip_buffer.seek(0)
-            zip_name = "processed_images.zip"
+            timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+            zip_name = f"processed_{timestamp}.zip" # processed_20250411_1429.zip
             blob_client = blob_service_client.get_blob_client(container=AZURE_CONTAINER_NAME, blob=zip_name)
             blob_client.upload_blob(zip_buffer.getvalue(), overwrite=True)
 
