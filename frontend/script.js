@@ -123,3 +123,27 @@ uploadBtn.addEventListener('click', async () => {
     selectedFiles = [];
     renderPreview();
 });
+
+const modeToggleBtn = document.getElementById('mode-toggle');
+
+// Load saved mode on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const savedMode = localStorage.getItem('theme');
+    if (savedMode === 'dark') {
+        document.body.classList.add('dark-mode');
+        modeToggleBtn.textContent = '☀️';
+    } else {
+        modeToggleBtn.textContent = '🌓';
+    }
+});
+
+// Toggle dark mode and save preference
+modeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    // Save user preference
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    modeToggleBtn.textContent = isDark ? '☀️' : '🌓';
+});
+

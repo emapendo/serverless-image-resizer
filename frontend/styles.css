@@ -1,7 +1,7 @@
 /* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f0f2f5;  /* Light gray-blue */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,29 +11,29 @@ body {
 
 /* Container */
 .container {
-    background: white;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
     text-align: center;
-    max-width: 400px;
+    max-width: 420px;
     width: 100%;
 }
 
 /* Drop Area */
 #drop-area {
-    border: 2px dashed #007bff;
+    border: 2px dashed #6c63ff;
     padding: 20px;
     margin-bottom: 15px;
     border-radius: 10px;
-    background: #f1faff;
+    background: #eef1fa;
     cursor: pointer;
 }
 
 #drop-area p {
     margin: 0;
     font-size: 14px;
-    color: #007bff;
+    color: #5a55d6;
 }
 
 input[type="file"] {
@@ -47,18 +47,18 @@ select, input[type="checkbox"], button {
 
 /* Upload Button */
 #upload-btn {
-    background-color: #28a745;
+    background-color: #6c63ff;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 6px;
     font-size: 16px;
     color: white;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 #upload-btn:hover {
-    background-color: #218838;
+    background-color: #5751cc;
 }
 
 /* Status Text */
@@ -66,6 +66,7 @@ select, input[type="checkbox"], button {
     margin-top: 10px;
     font-size: 14px;
     font-weight: bold;
+    color: #333;
 }
 
 /* Result Section */
@@ -76,13 +77,13 @@ select, input[type="checkbox"], button {
 
 #result img {
     width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    border-radius: 6px;
+    border: 1px solid #ccc;
     margin-top: 10px;
 }
 
 #result a {
-    color: #007bff;
+    color: #6c63ff;
     font-weight: bold;
     text-decoration: none;
 }
@@ -90,13 +91,7 @@ select, input[type="checkbox"], button {
     text-decoration: underline;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-    }
-}
-
+/* Preview Section */
 #preview-container {
     display: flex;
     flex-wrap: wrap;
@@ -114,8 +109,8 @@ select, input[type="checkbox"], button {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    border-radius: 6px;
+    border: 1px solid #bbb;
 }
 
 .remove-btn {
@@ -125,7 +120,7 @@ select, input[type="checkbox"], button {
     width: 20px;
     height: 20px;
     border: none;
-    background: #dc3545; /* Bootstrap red */
+    background: #ff4d4f;
     color: white;
     font-weight: bold;
     border-radius: 50%;
@@ -141,13 +136,94 @@ select, input[type="checkbox"], button {
 }
 
 .remove-btn:hover {
-    background-color: #c82333;
+    background-color: #d9363e;
 }
 
 .processed-image {
     width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    border-radius: 6px;
+    border: 1px solid #ccc;
     margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .container {
+    background: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode #drop-area {
+    background-color: #2a2a2a;
+    border-color: #888;
+    color: #e0e0e0;
+}
+
+body.dark-mode #drop-area p {
+    color: #cfcfcf;
+}
+
+body.dark-mode #upload-btn {
+    background-color: #bb86fc;
+    color: black;
+}
+
+body.dark-mode #upload-btn:hover {
+    background-color: #9a6de1;
+}
+
+body.dark-mode #result img,
+body.dark-mode .processed-image {
+    border: 1px solid #555;
+}
+
+body.dark-mode #status {
+    color: #ccc;
+}
+
+body.dark-mode select,
+body.dark-mode input[type="checkbox"] {
+    background-color: #2e2e2e;
+    color: #f1f1f1;
+    border: 1px solid #777;
+}
+
+#mode-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+#mode-toggle:hover {
+    background-color: #ddd;
+}
+
+body.dark-mode #mode-toggle {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode #mode-toggle:hover {
+    background-color: #444;
 }
 
