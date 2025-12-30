@@ -1,1 +1,13 @@
 
+# Virtual Environments and Editor configs
+.venv/
+.vscode/
+.idea/
+*.pyc
+__pycache__/
+.env
+.git/
+.gitignore
+
+# Azure related
+local.settings.json

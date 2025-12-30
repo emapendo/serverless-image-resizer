@@ -8,7 +8,10 @@ const formatSelect = document.getElementById('format');
 const watermarkCheckbox = document.getElementById('watermark');
 const previewContainer = document.getElementById('preview-container');
 
-const API_URL = "https://serverless-resizer.azurewebsites.net/api/image_resizer";
+const API_URL =
+    window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+        ? "http://localhost:7071/api/image_resizer"
+        : "https://serverless-resizer.azurewebsites.net/api/image_resizer";
 
 let selectedFiles = [];
 
@@ -107,7 +110,7 @@ uploadBtn.addEventListener('click', async () => {
                     Click here to download processed image
                 </a>
             `;
-        } else if(data.zip_url) {
+        } else if (data.zip_url) {
             resultContainer.innerHTML = `
                 <h3>Download ZIP:</h3>
                 <a href="${data.zip_url}" target="_blank" download>Click here to download processed images</a>
